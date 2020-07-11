@@ -17,7 +17,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage.setTitle("Login");
-        stage.setScene(new Scene(root, 400, 250));
+        stage.setScene(new Scene(root, 780, 439 ));
+        stage.setResizable(false);
         stage.show();
     }
 

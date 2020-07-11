@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class loginController {
@@ -31,12 +32,14 @@ public class loginController {
 
     @FXML
     void initialize() {
+        //auth
         Alert a = new Alert(Alert.AlertType.NONE);
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+
         loginButton.setOnAction(actionEvent -> {
             if(loginField.getText().equals("admin") && passwordField.getText().equals("admin")) {
                 loginButton.getScene().getWindow().hide();
-                FXMLLoader loader = new FXMLLoader();
-
                 loader.setLocation(getClass().getResource("main.fxml"));
 
                 try {
@@ -46,7 +49,6 @@ public class loginController {
                 }
 
                 Parent root = loader.getRoot();
-                Stage stage = new Stage();
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
 
@@ -56,5 +58,6 @@ public class loginController {
                 a.show();
             }
         });
+        //end auth
     }
 }
