@@ -28,11 +28,12 @@ public class mainController {
         tableView.setVisible(false);
         searchButton.setOnAction(actionEvent -> {
             searchButton.setDisable(true);
+            homeButton.setDisable(false);
             tableView.setVisible(true);
         });
         homeButton.setOnAction(actionEvent -> {
-            searchButton.setDisable(true);
-            homeButton.setDisable(false);
+            searchButton.setDisable(false);
+            homeButton.setDisable(true);
             tableView.setVisible(false);
         });
     }

@@ -2,6 +2,8 @@ package com.dominant;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,30 +36,57 @@ public class loginController {
     void initialize() {
         //auth
         Alert a = new Alert(Alert.AlertType.NONE);
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
 
         loginButton.setOnAction(actionEvent -> {
-            if(loginField.getText().equals("admin") && passwordField.getText().equals("admin")) {
-                loginButton.getScene().getWindow().hide();
-                loader.setLocation(getClass().getResource("main.fxml"));
+            String login = loginField.getText().trim();
+            String password = passwordField.getText().trim();
 
-                try {
-                    loader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            if(!login.equals("") && !password.equals("")) {
+                loginUser(login,password);
 
-                Parent root = loader.getRoot();
-                stage.setScene(new Scene(root));
-                stage.showAndWait();
 
             }else{
                 a.setAlertType(Alert.AlertType.ERROR);
-                a.setContentText("Не вірний логін або пароль");
+                a.setContentText("Ведіть коректний пароль");
                 a.show();
             }
         });
         //end auth
+    }
+
+    private void loginUser(String user_name, String user_password){
+        DataBaseHandler dataBaseHandler = new DataBaseHandler();
+        User user = new User();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+
+        user.setUser_name(user_name);
+        user.setUser_password(user_password);
+        ResultSet resultSet = dataBaseHandler.getUser(user);
+
+        int counter = 0;
+
+        try{
+        while(resultSet.next()){
+            counter++;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        if(counter >= 1){
+            loginButton.getScene().getWindow().hide();
+            loader.setLocation(getClass().getResource("main.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Parent root = loader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        }
     }
 }
