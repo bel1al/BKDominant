@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -30,7 +28,11 @@ public class loginController {
     private TextField loginField;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
+
+    @FXML
+    private Label loginLabel;
+
 
     @FXML
     void initialize() {
@@ -43,8 +45,6 @@ public class loginController {
 
             if(!login.equals("") && !password.equals("")) {
                 loginUser(login,password);
-
-
             }else{
                 a.setAlertType(Alert.AlertType.ERROR);
                 a.setContentText("Ведіть коректний пароль");
@@ -87,6 +87,10 @@ public class loginController {
             Parent root = loader.getRoot();
             stage.setScene(new Scene(root));
             stage.showAndWait();
+        }else{
+            loginField.setText("");
+            passwordField.setText("");
+            loginLabel.setText("Не вірні дані!Спробуйте знову");
         }
     }
 }
