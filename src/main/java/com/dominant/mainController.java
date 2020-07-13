@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -53,18 +54,18 @@ public class mainController {
     @FXML
     private TableColumn<Info, String> col_address;
 
+    @FXML
+    private Label onlineUserLabel;
+
     ObservableList<Info> listM;
-
-    Connection connection = null;
-    ResultSet resultSet = null;
-    PreparedStatement preparedStatement = null;
     DataBaseHandler dataBaseHandler = new DataBaseHandler();
-
-    int index = -1;
 
     @FXML
     void initialize() {
+        User user= new User();
 
+        onlineUserLabel.setText(onlineUserLabel.getText() + ONLINE_USER);
+        onlineUserLabel.autosize();
         //col add data from mysql
         col_id.setCellValueFactory(new PropertyValueFactory<Info,Integer>(INFO_ID));
         col_name.setCellValueFactory(new PropertyValueFactory<Info,String>(INFO_NAME));

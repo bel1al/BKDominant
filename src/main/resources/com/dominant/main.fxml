@@ -19,7 +19,7 @@
                   <Image url="@../../images/user-default-64.png" />
                </image>
             </ImageView>
-            <Label layoutX="69.0" layoutY="42.0" prefHeight="27.0" prefWidth="131.0" text="Доброго дня, " />
+            <Label fx:id="onlineUserLabel" layoutX="69.0" layoutY="42.0" prefHeight="27.0" prefWidth="287.0" text="Доброго дня, " />
          </children></AnchorPane>
       <Pane layoutX="14.0" layoutY="180.0" prefHeight="345.0" prefWidth="120.0" style="-fx-background-color: #ffffff67; -fx-background-radius: 70px;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="180.0">
          <children>

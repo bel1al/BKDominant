@@ -20,4 +20,6 @@ public class FinalVariable {
     public static final String INFO_SUM = "guarantor_sum";
     public static final String INFO_TIME = "tender_time";
     public static final String INFO_ADDRESS = "address";
+
+    public static String ONLINE_USER;
 }

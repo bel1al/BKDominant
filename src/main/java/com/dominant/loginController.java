@@ -13,6 +13,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import static com.dominant.FinalVariable.ONLINE_USER;
+
 public class loginController {
 
     @FXML
@@ -75,6 +77,8 @@ public class loginController {
         }
 
         if(counter >= 1){
+            ONLINE_USER = user_name;
+
             loginButton.getScene().getWindow().hide();
             loader.setLocation(getClass().getResource("main.fxml"));
 
@@ -83,7 +87,6 @@ public class loginController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             Parent root = loader.getRoot();
             stage.setScene(new Scene(root));
             stage.showAndWait();

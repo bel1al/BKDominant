@@ -46,17 +46,17 @@ public class DataBaseHandler{
         ObservableList<Info> list= FXCollections.observableArrayList();
         String select = "SELECT * FROM " + TABLE_NAME_INFO;
         try{
-            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            while(resultSet.next()){
+            while(resultSet.next()) {
                 list.add(new Info(Integer.parseInt(resultSet.getString(INFO_ID)), resultSet.getString(INFO_NAME),
                         Integer.parseInt(resultSet.getString(INFO_PAYMENT)), Integer.parseInt(resultSet.getString(INFO_SUM)),
-                            resultSet.getString(INFO_TIME),resultSet.getString(INFO_ADDRESS)));
+                        resultSet.getString(INFO_TIME), resultSet.getString(INFO_ADDRESS)));
             }
+
         }
         catch (Exception e){
-
+            System.out.println(e);
         }
 
         return list;
