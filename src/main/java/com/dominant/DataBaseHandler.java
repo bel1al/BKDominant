@@ -1,5 +1,9 @@
 package com.dominant;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 import static com.dominant.FinalVariable.*;
@@ -21,7 +25,7 @@ public class DataBaseHandler{
     public ResultSet getUser(User user){
         ResultSet resultSet = null;
 
-        String select = "SELECT * FROM " + TABLE_NAME + " WHERE " + USERS_NAME + "=? AND " + USERS_PASSWORD + "=?";
+        String select = "SELECT * FROM " + TABLE_NAME_LOGIN + " WHERE " + USERS_NAME + "=? AND " + USERS_PASSWORD + "=?";
 
         try {
             PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
@@ -36,5 +40,25 @@ public class DataBaseHandler{
         }
 
         return resultSet;
+    }
+
+    public ObservableList<Info> getInfo(){
+        ObservableList<Info> list= FXCollections.observableArrayList();
+        String select = "SELECT * FROM " + TABLE_NAME_INFO;
+        try{
+            PreparedStatement preparedStatement = dbConnection.prepareStatement(select);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                list.add(new Info(Integer.parseInt(resultSet.getString(INFO_ID)), resultSet.getString(INFO_NAME),
+                        Integer.parseInt(resultSet.getString(INFO_PAYMENT)), Integer.parseInt(resultSet.getString(INFO_SUM)),
+                            resultSet.getString(INFO_TIME),resultSet.getString(INFO_ADDRESS)));
+            }
+        }
+        catch (Exception e){
+
+        }
+
+        return list;
     }
 }
