@@ -20,6 +20,8 @@ public class FinalVariable {
     public static final String INFO_SUM = "sum";
     public static final String INFO_TIME = "time";
     public static final String INFO_ADDRESS = "address";
+    public static final String INFO_PROFIT = "profit";
+    public static final String INFO_STATUS = "status";
 
     public static String ONLINE_USER;
 }

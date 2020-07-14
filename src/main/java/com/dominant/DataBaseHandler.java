@@ -51,7 +51,8 @@ public class DataBaseHandler{
             while(resultSet.next()) {
                 list.add(new Info(Integer.parseInt(resultSet.getString(INFO_ID)), resultSet.getString(INFO_NAME),
                         Integer.parseInt(resultSet.getString(INFO_PAYMENT)), Integer.parseInt(resultSet.getString(INFO_SUM)),
-                        resultSet.getString(INFO_TIME), resultSet.getString(INFO_ADDRESS)));
+                        resultSet.getString(INFO_TIME), resultSet.getString(INFO_ADDRESS),Integer.parseInt(resultSet.getString(INFO_PROFIT)),
+                        resultSet.getString(INFO_STATUS)));
             }
 
         }

@@ -10,20 +10,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dominant.mainController">
+<AnchorPane prefHeight="700.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dominant.mainController">
    <children>
       <AnchorPane prefHeight="173.0" prefWidth="870.0" style="-fx-background-color: #d3d3d3;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <ImageView fitHeight="55.0" fitWidth="68.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="75.0" fitWidth="92.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/user-default-64.png" />
                </image>
             </ImageView>
-            <Label fx:id="onlineUserLabel" layoutX="69.0" layoutY="42.0" prefHeight="27.0" prefWidth="287.0" text="Доброго дня, " />
+            <Label fx:id="onlineUserLabel" layoutX="21.0" layoutY="97.0" prefHeight="27.0" prefWidth="287.0" text="Доброго дня, " />
          </children></AnchorPane>
-      <Pane layoutX="14.0" layoutY="180.0" prefHeight="345.0" prefWidth="120.0" style="-fx-background-color: #ffffff67; -fx-background-radius: 70px;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="180.0">
+      <Pane layoutX="14.0" layoutY="180.0" prefHeight="515.0" prefWidth="106.0" style="-fx-background-color: #ffffff67; -fx-background-radius: 70px;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="180.0">
          <children>
-            <Button fx:id="homeButton" layoutX="26.0" layoutY="62.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
+            <Button fx:id="homeButton" layoutX="19.0" layoutY="62.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="26.0" layoutY="401.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
+            <Button layoutX="19.0" layoutY="400.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -41,7 +41,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="26.0" layoutY="290.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
+            <Button layoutX="19.0" layoutY="290.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="searchButton" layoutX="26.0" layoutY="172.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
+            <Button fx:id="searchButton" layoutX="19.0" layoutY="172.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -64,15 +64,32 @@
             <DropShadow color="#575757" />
          </effect>
       </Pane>
-      <TableView fx:id="tableView" layoutX="151.0" layoutY="204.0" prefHeight="481.0" prefWidth="835.0">
+      <TableView fx:id="tableView" layoutX="129.0" layoutY="180.0" prefHeight="505.0" prefWidth="1084.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="97.0" AnchorPane.topAnchor="180.0">
          <columns>
             <TableColumn fx:id="col_id" prefWidth="37.0" text="id" />
-            <TableColumn fx:id="col_name" prefWidth="264.0" text="Імя замовника" />
-            <TableColumn fx:id="col_payment" prefWidth="92.0" text="Вартість" />
-            <TableColumn fx:id="col_sum" prefWidth="114.0" text="Сума гаранта" />
-            <TableColumn fx:id="col_time" prefWidth="122.0" text="Час виконання" />
-            <TableColumn fx:id="col_address" prefWidth="205.0" text="Адреса" />
+            <TableColumn fx:id="col_name" prefWidth="247.0" text="Імя замовника" />
+            <TableColumn fx:id="col_payment" prefWidth="142.0" text="Очікувана вартість" />
+            <TableColumn fx:id="col_sum" prefWidth="127.0" text="Сума гаранта" />
+            <TableColumn fx:id="col_time" prefWidth="142.0" text="Початок аукціону" />
+            <TableColumn fx:id="col_address" prefWidth="161.0" text="Адреса" />
+            <TableColumn fx:id="col_profit" prefWidth="135.0" text="Прибуток з ПДВ" />
+            <TableColumn fx:id="col_status" prefWidth="92.0" text="Статус" />
          </columns>
       </TableView>
+      <Pane layoutX="1218.0" layoutY="182.0" prefHeight="515.0" prefWidth="88.0" style="-fx-background-color: #ffffff67; -fx-background-radius: 70px;">
+         <effect>
+            <DropShadow color="#575757" />
+         </effect>
+         <children>
+            <Button fx:id="analizeButton" layoutX="13.0" layoutY="55.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

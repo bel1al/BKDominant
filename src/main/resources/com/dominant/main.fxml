@@ -72,8 +72,8 @@
             <TableColumn fx:id="col_sum" prefWidth="127.0" text="Сума гаранта" />
             <TableColumn fx:id="col_time" prefWidth="142.0" text="Початок аукціону" />
             <TableColumn fx:id="col_address" prefWidth="161.0" text="Адреса" />
-            <TableColumn prefWidth="135.0" text="Прибуток з ПДВ" />
-            <TableColumn prefWidth="92.0" text="Статус" />
+            <TableColumn fx:id="col_profit" prefWidth="135.0" text="Прибуток з ПДВ" />
+            <TableColumn fx:id="col_status" prefWidth="92.0" text="Статус" />
          </columns>
       </TableView>
       <Pane layoutX="1218.0" layoutY="182.0" prefHeight="515.0" prefWidth="88.0" style="-fx-background-color: #ffffff67; -fx-background-radius: 70px;">
@@ -81,8 +81,14 @@
             <DropShadow color="#575757" />
          </effect>
          <children>
-            <Button layoutX="13.0" layoutY="55.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;" />
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="22.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="analizeButton" layoutX="13.0" layoutY="55.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="68.0" style="-fx-background-radius: 50px;">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </Pane>
    </children>

@@ -1,8 +1,8 @@
 package com.dominant;
 
 public class Info {
-    private int id, payment,sum;
-    private String name, address,time;
+    private int id, payment,sum,profit;
+    private String name, address,time,status;
 
     public int getId() {
         return id;
@@ -52,12 +52,30 @@ public class Info {
         this.time = time;
     }
 
-    public Info(int id, String name, int payment, int sum, String time, String address) {
+    public int getProfit() {
+        return profit;
+    }
+
+    public void setProfit(int profit) {
+        this.profit = profit;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Info(int id, String name, int payment, int sum, String time, String address, int profit, String status) {
         this.id = id;
         this.payment = payment;
         this.sum = sum;
         this.name = name;
         this.address = address;
         this.time = time;
+        this.profit = profit;
+        this.status = status;
     }
 }

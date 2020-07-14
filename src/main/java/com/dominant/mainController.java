@@ -1,6 +1,8 @@
 package com.dominant;
 
+import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.IllegalCharsetNameException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,12 +12,16 @@ import java.util.zip.InflaterOutputStream;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import static com.dominant.FinalVariable.*;
 
@@ -32,6 +38,9 @@ public class mainController {
 
     @FXML
     private Button searchButton;
+
+    @FXML
+    private Button analizeButton;
 
     @FXML
     private TableView<Info> tableView;
@@ -55,6 +64,12 @@ public class mainController {
     private TableColumn<Info, String> col_address;
 
     @FXML
+    private TableColumn<Info, Integer> col_profit;
+
+    @FXML
+    private TableColumn<Info, String> col_status;
+
+    @FXML
     private Label onlineUserLabel;
 
     ObservableList<Info> listM;
@@ -62,7 +77,8 @@ public class mainController {
 
     @FXML
     void initialize() {
-        User user= new User();
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
 
         onlineUserLabel.setText(onlineUserLabel.getText() + ONLINE_USER);
         onlineUserLabel.autosize();
@@ -73,6 +89,8 @@ public class mainController {
         col_sum.setCellValueFactory(new PropertyValueFactory<Info,Integer>(INFO_SUM));
         col_time.setCellValueFactory(new PropertyValueFactory<Info,String>(INFO_TIME));
         col_address.setCellValueFactory(new PropertyValueFactory<Info,String>(INFO_ADDRESS));
+        col_profit.setCellValueFactory(new PropertyValueFactory<Info,Integer>(INFO_PROFIT));
+        col_status.setCellValueFactory(new PropertyValueFactory<Info,String>(INFO_STATUS));
 
         listM = dataBaseHandler.getInfo();
         tableView.setItems(listM);
@@ -88,6 +106,19 @@ public class mainController {
             searchButton.setDisable(false);
             homeButton.setDisable(true);
             tableView.setVisible(false);
+        });
+
+        analizeButton.setOnAction(actionEvent -> {
+            analizeButton.getScene().getWindow().hide();
+            loader.setLocation(getClass().getResource("analize.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
         });
     }
 }
