@@ -111,14 +111,16 @@ public class mainController {
         analizeButton.setOnAction(actionEvent -> {
             analizeButton.getScene().getWindow().hide();
             loader.setLocation(getClass().getResource("analize.fxml"));
+
             try {
                 loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             Parent root = loader.getRoot();
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         });
     }
 }

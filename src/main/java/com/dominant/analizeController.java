@@ -30,7 +30,7 @@ public class analizeController {
             }
             Parent root = loader.getRoot();
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         });
     }
 }

@@ -10,18 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import static com.dominant.FinalVariable.ONLINE_USER;
 
 public class loginController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button loginButton;
@@ -89,7 +82,7 @@ public class loginController {
             }
             Parent root = loader.getRoot();
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         }else{
             loginField.setText("");
             passwordField.setText("");
