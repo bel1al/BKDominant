@@ -4,6 +4,10 @@ public class Info {
     private int id, payment,sum,profit;
     private String name, address,time,status;
 
+    public Info() {
+        
+    }
+
     public int getId() {
         return id;
     }

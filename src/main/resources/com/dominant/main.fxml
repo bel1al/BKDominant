@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dominant.mainController">
    <children>
@@ -20,6 +21,46 @@
                </image>
             </ImageView>
             <Label fx:id="onlineUserLabel" layoutX="21.0" layoutY="97.0" prefHeight="27.0" prefWidth="287.0" text="Доброго дня, " />
+            <Label layoutX="406.0" layoutY="62.0" prefHeight="16.0" prefWidth="158.0" text="IP-телефонія:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="406.0" layoutY="89.0" text="Телефон 1:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="406.0" layoutY="116.0" text="Телефон 2:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="406.0" layoutY="143.0" text="Телефон 3:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="741.0" layoutY="67.0" text="Чергові працівники:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="741.0" layoutY="91.0" text="Працівник 1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="741.0" layoutY="118.0" text="Працівник 2:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="741.0" layoutY="145.0" prefHeight="16.0" prefWidth="98.0" text="Працівник 3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
       <Pane layoutX="14.0" layoutY="180.0" prefHeight="515.0" prefWidth="106.0" style="-fx-background-color: #ffffff67; -fx-background-radius: 70px;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="180.0">
          <children>

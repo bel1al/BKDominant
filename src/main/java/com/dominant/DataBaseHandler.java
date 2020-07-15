@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.dominant.FinalVariable.*;
 
@@ -54,12 +56,43 @@ public class DataBaseHandler{
                         resultSet.getString(INFO_TIME), resultSet.getString(INFO_ADDRESS),Integer.parseInt(resultSet.getString(INFO_PROFIT)),
                         resultSet.getString(INFO_STATUS)));
             }
-
         }
         catch (Exception e){
             System.out.println(e);
         }
 
         return list;
+    }
+
+    public List <Integer> getProfit(){
+        List <Integer> profitList = new ArrayList<>();
+        String select = "SELECT * FROM " + TABLE_NAME_INFO;
+        try{
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                profitList.add(Integer.parseInt(resultSet.getString(INFO_PROFIT)));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return profitList;
+    }
+
+    public List <String> getName(){
+        List <String> nameList = new ArrayList<>();
+        String select = "SELECT * FROM " + TABLE_NAME_INFO;
+        try{
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                nameList.add(resultSet.getString(INFO_NAME));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return nameList;
     }
 }

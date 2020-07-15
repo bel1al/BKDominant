@@ -2,20 +2,13 @@ package com.dominant;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.charset.IllegalCharsetNameException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Properties;
-import java.util.ResourceBundle;
-import java.util.zip.InflaterOutputStream;
+import java.util.*;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
