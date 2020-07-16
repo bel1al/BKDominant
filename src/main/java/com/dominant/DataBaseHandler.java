@@ -1,6 +1,5 @@
 package com.dominant;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -94,5 +93,21 @@ public class DataBaseHandler{
             System.out.println(e);
         }
         return nameList;
+    }
+
+    public List<String> getStatusTender(){
+        List <String> statusList = new ArrayList<>();
+        String select = "SELECT * FROM " + TABLE_NAME_INFO;
+        try{
+            PreparedStatement preparedStatement = getDbConnection().prepareStatement(select);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                statusList.add(resultSet.getString(INFO_STATUS));
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return statusList;
     }
 }

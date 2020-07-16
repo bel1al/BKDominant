@@ -21,12 +21,6 @@ import static com.dominant.FinalVariable.*;
 public class mainController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private Button homeButton;
 
     @FXML

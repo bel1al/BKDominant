@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="803.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dominant.analizeController">
+<AnchorPane prefHeight="627.0" prefWidth="1683.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dominant.analizeController">
    <children>
-      <Label layoutX="163.0" layoutY="32.0" text="Анлаіз прибутку за квартал" />
-      <Label layoutX="690.0" layoutY="32.0" prefHeight="16.0" prefWidth="237.0" text="Аналіз тендерів за квартал" />
-      <Label layoutX="508.0" layoutY="377.0" prefHeight="16.0" prefWidth="206.0" text="Головні доходи за квартал" />
-      <Button fx:id="backButton" layoutX="41.0" layoutY="553.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-radius: 100px;" text="back" />
-      <PieChart fx:id="paymentStatistic" layoutX="387.0" layoutY="418.0" prefHeight="371.0" prefWidth="422.0" />
+      <PieChart fx:id="paymentStatistic" animated="false" layoutX="27.0" layoutY="33.0" prefHeight="550.0" prefWidth="790.0" style="-fx-pie-label-visible: false;" title="Аналіз прибитку за квартал" />
+      <BarChart fx:id="tenderStatistic" layoutX="945.0" layoutY="33.0" prefHeight="550.0" prefWidth="722.0" title="Аналіз тендерів за квартал">
+        <xAxis>
+          <CategoryAxis fx:id="AxisX" label="Статус тендера" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="AxisY" label="К-лво" side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Pane layoutX="830.0" layoutY="43.0" prefHeight="550.0" prefWidth="92.0" style="-fx-background-radius: 70px; -fx-background-color: #ffffff67;">
+         <effect>
+            <DropShadow color="#575757" />
+         </effect>
+         <children>
+            <Button fx:id="printButton" layoutX="1.0" layoutY="283.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100px;">
+               <graphic>
+                  <ImageView fitHeight="69.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/print-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="backButton" layoutX="1.0" layoutY="123.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-radius: 100px;">
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/back-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
